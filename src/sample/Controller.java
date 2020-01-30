@@ -10,8 +10,6 @@ import javafx.scene.paint.Color;
 
 public class Controller {
 
-    private final double dW = Main.WIDTH, dH = Main.HEIGHT;
-
     @FXML
     private Button plotButton;
 
@@ -20,11 +18,13 @@ public class Controller {
         event.consume();
         plotButton.setVisible(false);
         final PixelWriter pw = image.getGraphicsContext2D().getPixelWriter();
+        double dH = Main.HEIGHT;
         image.setHeight(dH);
+        double dW = Main.WIDTH;
         image.setWidth(dW);
         for (int i = 0; i < Main.WIDTH; i++)
             for (int j = 0; j < Main.HEIGHT; j++)
-                pw.setColor(i, j, colorFunction(((double) i)/dW ,((double) j)/dH));
+                pw.setColor(i, j, colorFunction(((double) i) / dW, ((double) j) / dH));
         System.out.println("... and it disappeared! ");
 
     }
@@ -42,8 +42,6 @@ public class Controller {
         }
         return Color.hsb( 180*(Math.atan2(im,re)/Math.PI) ,1.0,1.0);
     }
-
-
 
     @FXML
     private Canvas image = new Canvas();
