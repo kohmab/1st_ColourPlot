@@ -9,11 +9,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Lets plot!");
-        primaryStage.setScene(new Scene(root, 777, 777));
+        primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));
         primaryStage.show();
 
     }
